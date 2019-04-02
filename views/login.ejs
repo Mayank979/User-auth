@@ -1,0 +1,11 @@
+<% include partials/header%>
+<p>
+  <form  action="/login" method="post">
+        Username: <input type="text" name="user[username]" placeholder="Enter Username" autocomplete="off"><hr>
+        Email: <input type="email" name="user[email]" placeholder="Enter email" autocomplete="off"><hr>
+        password: <input type="password" name="user[password]" placeholder="Enter password" autocomplete="off"><hr>
+        <input type="Submit" value="Submit">
+  </form>
+</p>
+
+<% include partials/footer%>

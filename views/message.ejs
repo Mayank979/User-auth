@@ -1,0 +1,23 @@
+<% include partials/header%>
+
+<p>  Send message from here </p>
+
+
+
+<form class="" id="message-form" >
+    <input type="text" id='data' name="message" placeholder="Enter your message here" autocomplete="off"><br><hr>
+    <button  name="button">Submit</button>
+</form>
+
+<p></p>
+<div id="incoming-msg">
+
+</div>
+
+<script
+src="http://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+crossorigin="anonymous"></script>
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="./socket.js"></script>
+<% include partials/footer%>
