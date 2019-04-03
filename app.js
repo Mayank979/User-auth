@@ -6,6 +6,7 @@ const express = require("express"),
       bodyParser = require("body-parser"),
       {generateMessage} = require("./utils/message"),
       jwt = require("jsonwebtoken"),
+      authenticate = require("./middleware/authenticate"),
       User = require("./models/user");
 
 const publicPath = path.join(__dirname, "./public");
@@ -41,11 +42,11 @@ app.get("/message", (req, res) => {
 });
 
 
-app.get("/login", (req, res) => {
-  res.render("login");
+app.get("/register", (req, res) => {
+  res.render("register");
 });
 
-app.post("/login", (req, res) => {
+app.post("/register", (req, res) => {
     let data = req.body.user;
     let user = new User(data);
     user.save()
@@ -57,7 +58,15 @@ app.post("/login", (req, res) => {
        .catch((e) => {
          res.status(400).send(e);
        });
-  //  res.redirect("/");
+
+});
+
+
+
+
+
+app.get("/users", authenticate, (req, res) => {
+  res.send(req.user);
 });
 
 app.get("/", (req, res) =>{
